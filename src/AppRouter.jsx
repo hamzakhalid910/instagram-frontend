@@ -8,6 +8,7 @@ import {
 import SignUp from "./pages/signup";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/profile";
 
 const PrivateRoute = ({ element }) => {
   const token = localStorage.getItem("token");
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Route path="/" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
   );
