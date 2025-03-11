@@ -35,8 +35,18 @@ function Login() {
     if (!validate()) return;
     console.log("Login Form Data:", formData);
     try {
-      const response = await axios.post("http:/api/login", formData);
+      const response = await axios.post(
+        "http://localhost:3000/auth/login",
+        formData
+      );
       console.log("Login successful:", response.data);
+      localStorage.setItem("accessToken", response.data.accesToken);
+      navigate("/dashboard");
+
+      setFormData({
+        email: "",
+        password: "",
+      });
     } catch (err) {
       console.error("Login error:", err);
     }

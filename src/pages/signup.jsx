@@ -37,8 +37,18 @@ function SignUp() {
     if (!validate()) return;
     console.log("Sign Up Form Data:", formData);
     try {
-      const response = await axios.post("http:/api/signup", formData);
+      const response = await axios.post(
+        "http://localhost:3000/auth/signup",
+        formData
+      );
       console.log("Signup successful:", response.data);
+
+      setFormData({
+        email: "",
+        firstName: "",
+        username: "",
+        password: "",
+      });
     } catch (err) {
       console.error("Signup error:", err);
     }

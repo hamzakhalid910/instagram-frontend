@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import EditProfile from "../components/editProfile";
-import ViewProfile from "../components/viewProfile";
 import Header from "../components/header";
 import PostsFeed from "../components/postFeed";
+import ViewProfile from "../components/viewProfile";
 
-function Profile() {
+function UserProfile() {
+  const [isFollowing, setIsFollowing] = useState("");
   return (
     <>
       <div className="flex flex-col w-full">
@@ -14,15 +15,15 @@ function Profile() {
 
         <div className="flex">
           <div className="w-3/5 border-1 p-28">
-            <PostsFeed></PostsFeed>
+            <PostsFeed IsFollowingUser={isFollowing}></PostsFeed>
           </div>
 
           <div className="fixed w-2/5 border-1 p-4 pt-28 right-0">
-            <EditProfile />
+            <ViewProfile IsFollowing={isFollowing} />
           </div>
         </div>
       </div>
     </>
   );
 }
-export default Profile;
+export default UserProfile;
